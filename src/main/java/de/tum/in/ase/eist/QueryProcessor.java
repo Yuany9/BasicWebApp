@@ -29,7 +29,7 @@ public class QueryProcessor {
                 }
             }
             return String.valueOf(sum);
-        } else if (query.contains("largerst")) {
+        } else if (query.contains("largest")) {
             int max = -1;
             for (String word : words) {
                 try {

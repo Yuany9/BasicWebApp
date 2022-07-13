@@ -6,19 +6,21 @@ import org.springframework.stereotype.Service;
 public class QueryProcessor {
 
     public String process(String query) {
-		query = query.toLowerCase();
+        query = query.toLowerCase();
         //  String query = "12 plus 15";
+        String[] words = new String[0];
         if (query.contains("shakespeare")) {
             return "William Shakespeare (26 April 1564 - 23 April 1616) was an " +
                     "English poet, playwright, and actor, widely regarded as the greatest " +
                     "writer in the English language and the world's pre-eminent dramatist.";
         } else if (query.contains("name")) {
-           return "Yuan";
+            return "Yuan";
         } else if (query.contains("plus")) {
             // Here get a list of words
-            String[] words = query.split("");
+            query = query.replace(",", " ");
+            words = query.split(" ");
             int sum = 0;
-            for (String word:  words) {
+            for (String word : words) {
                 try {
                     int number = Integer.parseInt(word);
                     sum += number;
@@ -28,7 +30,16 @@ public class QueryProcessor {
             }
             return String.valueOf(sum);
         } else if (query.contains("largerst")) {
-            return "";
+            int max = -1;
+            for (String word : words) {
+                try {
+                    int number = Integer.parseInt(word);
+                    max = Math.max(number, max);
+                } catch (Exception e) {
+                    //
+                }
+            }
+            return String.valueOf(max);
         }
         // TODO extend the programm here
 

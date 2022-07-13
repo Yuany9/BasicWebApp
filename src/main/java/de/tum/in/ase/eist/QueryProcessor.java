@@ -42,7 +42,6 @@ public class QueryProcessor {
             return String.valueOf(max);
         }
         // TODO extend the programm here
-
         // Add a new comment, do not change anything
         return "";
     }
